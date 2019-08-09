@@ -1,0 +1,62 @@
+{
+	"ivr": {
+		"text": "Thanks for calling. You can press a key or say the department name. Press 1 for Order status, press 2 for Loyalty, press 3 for Availability, press 4 for Pricing",
+		"options": [
+			{
+				"friendlyName": "Order status",
+				"digit": 1,
+				"id": "order_status"
+			},
+			{
+				"friendlyName": "Loyalty",
+				"digit": 2,
+				"id": "loyalty"
+			},
+			{
+				"friendlyName": "Availability Related",
+				"digit": 2,
+				"id": "Availability_Related"
+			},
+			{
+				"friendlyName": "Pricing Related",
+				"digit": 2,
+				"id": "pricing_Related"
+			}
+		]
+	},
+	"queues": [
+		{
+			"friendlyName": "Chat Queue",
+			"filterFriendlyName": "Chat",
+			"id": "chat",
+			"taskQueueSid": null,
+			"expression": "channel == \"chat\"",
+			"targetWorkerExpression": ""
+		},
+		{
+			"friendlyName": "Phone Queue",
+			"filterFriendlyName": "Phone",
+			"id": "phone",
+			"taskQueueSid": null,
+			"expression": "channel == \"phone\"",
+			"targetWorkerExpression": "task.team == worker.team OR task.transferToWorkerSid = worker.sid"
+		},
+		{
+			"friendlyName": "Video Queue",
+			"filterFriendlyName": "Video",
+			"id": "video",
+			"taskQueueSid": null,
+			"expression": "channel == \"video\"",
+			"targetWorkerExpression": ""
+		}
+	],
+	"twilio": {
+		"workerOfflineActivitySid": null,
+		"workerAvailableActivitySid": null,
+		"workerUnavailableActivitySid": null,
+		"callerId": null,
+		"applicationSid": null,
+		"workflowSid": null,
+		"facebookPageId": null
+	}
+}
