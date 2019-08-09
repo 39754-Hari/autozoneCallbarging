@@ -95,7 +95,7 @@ module.exports.selectTeam = function (req, res) {
 			type: 'inbound_call',
 			team: team.id
 		}
-
+		console.log('workflowSid before Q:',workflowSid,"team id:",team.id)
 		twiml.enqueue({
 			workflowSid: req.configuration.twilio.workflowSid,
 		}).task({priority: 1, timeout: 3600}, JSON.stringify(attributes))
